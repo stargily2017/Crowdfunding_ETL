@@ -38,3 +38,15 @@ The database has the appropriate primary and foreign keys and relationships (5 p
 Each CSV file is imported into the appropriate table without errors (5 points)
 The data from each table is displayed using a SELECT * statement (5 points)
 This project will be evaluated against the requirements and assigned a grade according to the following table:
+
+# Iterate through the contact_info_df and convert each row to a dictionary.
+import json
+dict_values = []
+for i, row in contact_info_df.iterrows():
+    data = row['contact_info']
+    converted_data = json.loads(data)
+    # Iterate through each dictionary (row) and get the values for each row using list comprehension.
+    row_values = [i for j, i in converted_data.items()]
+    # Append the list of values for each row to a list. 
+    dict_values.append(row_values)
+print(dict_values)
