@@ -50,3 +50,10 @@ for i, row in contact_info_df.iterrows():
     # Append the list of values for each row to a list. 
     dict_values.append(row_values)
 print(dict_values)
+1. dict_values = [] initializes an empty list called dict_values used to store the values from each row as dictionaries.
+2. for i, row in contact_info_df.iterrows(): starts a loop that iterates through each row in the contact_info_df DataFrame. The loop assigns the index i and the row data row to the variables.
+3. data = row['contact_info'] retrieves the value from the 'contact_info' column of the current row and assigns it to the variable data. This value is a string representing a JSON object.
+4. converted_data = json.loads(data) uses the json.loads() method to parse the string data into a Python dictionary. The resulting dictionary is assigned to the variable converted_data.
+5. row_values = [v for k, v in converted_data.items()] uses a list comprehension to iterate over each key-value pair in the converted_data dictionary. It retrieves only the values (v) from each pair and creates a new list called row_values.
+6. dict_values.append(row_values) adds the row_values list, which contains the values from the current row, to the dict_values list. This list will eventually hold all the rows' values as separate lists.
+In summary, here we iterate through each row of contact_info_df, where the 'contact_info' column contains JSON strings, convert each JSON string to a dictionary, retrieve the values from each dictionary, and store them as separate lists in the dict_values list. This process essentially converts each row in the DataFrame to a dictionary format and stores the values for further analysis.
